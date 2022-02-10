@@ -5,7 +5,12 @@ def processing(image_brut):
 
     list_return = []
 
-    original_rescale = cv.resize(image_brut, dsize=(1098, 744), interpolation=cv.INTER_CUBIC)
+    imwidth = image_brut.shape[0]
+    imheight = image_brut.shape[1]
+
+
+
+    original_rescale = cv.resize(image_brut, dsize=(1098, 744), interpolation=cv.INTER_LINEAR)
     list_return.append(original_rescale)
 
     img_y_cr_cb_rescale = cv.cvtColor(original_rescale, cv.COLOR_BGR2YCrCb)

@@ -1,6 +1,8 @@
 import subprocess
 import cv2 as cv
 from cv2.cv2 import imwrite
+from tkinter import Tk     # from tkinter import Tk for Python 3.x
+from tkinter.filedialog import askopenfilename
 
 # list les réponses possibles
 answers_yes = ["oui", "Oui", "OUI", "O", "yes", "Yes", "YES", "y", "Y", "0"]
@@ -34,6 +36,7 @@ def sauvegarde(choice, image):
         exit(-1)
 
 def explorateur():
-    selection = subprocess.Popen(['xdg-open','/home/apb/Pictures'])
-    selection.wait()
-    return selection
+    Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
+    filename = askopenfilename("/home/apb/Pictures")  # show an "Open" dialog box and return the path to the selected file
+    brut = cv.imread(filename)
+    return brut
