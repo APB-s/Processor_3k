@@ -1,7 +1,7 @@
 import subprocess
 import cv2 as cv
 from cv2.cv2 import imwrite
-from tkinter import Tk     # from tkinter import Tk for Python 3.x
+from tkinter import Tk  # from tkinter import Tk for Python 3.x
 from tkinter.filedialog import askopenfilename
 
 # list les réponses possibles
@@ -35,8 +35,9 @@ def sauvegarde(choice, image):
         cv.destroyAllWindows()
         exit(-1)
 
+
 def explorateur():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
-    filename = askopenfilename("/home/apb/Pictures")  # show an "Open" dialog box and return the path to the selected file
+    filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
     brut = cv.imread(filename)
     return brut
